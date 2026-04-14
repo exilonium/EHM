@@ -6,8 +6,9 @@ import Map from '../Components/Contact/Map'
 const ContactPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
-         {/* <Hero/> */}
-          <div id="form"><Contact/></div>
+        <Hero/>
+        <div id="form"><Contact/></div>
+        <Map/>
     </div>
   )
 }

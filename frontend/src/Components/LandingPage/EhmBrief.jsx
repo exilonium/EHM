@@ -23,53 +23,8 @@ const EhmBrief = () => {
 
       {/* Top Section */}
       <div className="relative text-center w-full h-auto mx-auto py-16 sm:py-16 md:py-16 z-20">
-        {/* Background Circles  */}
-        {/* <div className="absolute inset-0 z-0 hidden md:flex items-center justify-center pointer-events-none translate-y-10 p-8 sm:p-16 md:p-20">
-          <div className="w-[95vw] max-w-[1200px] aspect-square rounded-full border-2 border-black/20 bg-[#ededed] relative flex items-center justify-center p-6 sm:p-10">
-            <div className="w-[85%] aspect-square rounded-full border-2 border-black/20 bg-[#eff5f2e8] relative"></div>
-          </div>
-        </div>
-        <div className="absolute -top-10 left-0 w-full h-[70%] bg-gradient-to-b from-[#ededed]" />
-        <div className="absolute bottom-0 left-0 w-full h-[70%] bg-gradient-to-t from-[#ededed]" /> */}
-
         {/* Top Section Content */}
         <SectionHeading>About EHM</SectionHeading>
-        {/* <ScrollRevealElements
-          className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6"
-          staggerAmount={0.5}
-          yOffset={40}
-        > */}
-
-          {/* <motion.span className="inline-block px-4 py-1.5 mb-4 sm:mb-5 text-lg sm:text-2xl bg-emerald-100 text-emerald-800 rounded-3xl">
-            About <span className="font-bold">EHM</span>
-          </motion.span>
-
-          <motion.div className="translate-y-8 lg:translate-y-12">
-            <p className="text-base sm:text-xl md:text-2xl lg:text-3xl text-gray-700 leading-relaxed text-center">
-              Honored as the{" "}
-              <span className="font-bold text-emerald-600">
-                Best Sustainability Startup
-              </span>
-              , EHM is a deep-tech venture founded by
-              <span className="inline-block bg-white text-gray-900 font-bold rounded-md px-3 py-1 mx-1">
-                IIT alumni
-              </span>
-              that transforms complex environmental challenges into
-              opportunities for growth. We specialize in data-driven{" "}
-              <span className="font-bold text-emerald-600">
-                Climate Risk Intelligence{" "}
-              </span>
-              and engineering sustainable solutions that deliver lasting value
-              and impact.
-            </p>
-          </motion.div> */}
-
-          {/* <motion.div className="hidden lg:flex col-span-2 justify-center items-start pt-8 -translate-x-1/2 translate-y-14">
-            <span className="text-7xl xl:text-9xl font-light text-gray-300">
-              ∫<em className="text-7xl xl:text-9xl not-italic">dx</em>
-            </span>
-          </motion.div>
-        </ScrollRevealElements> */}
       </div>
 
       {/* Bottom Section */}
@@ -99,9 +54,6 @@ const EhmBrief = () => {
               staggerAmount={0.5}
               yOffset={30}
             >
-              <motion.h3 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-semibold text-gray-800 mb-3 sm:mb-4">
-                
-              </motion.h3>
               <motion.p className="text-gray-600 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base md:text-base lg:text-lg">
                 EHM is a sustainability-focused startup founded by IIT alumni, 
                 working to advance the United Nations Sustainable Development Goals (SDGs). 
