@@ -4,15 +4,15 @@ import { Sparkles } from "lucide-react";
 import ScrollRevealElements from '../Animations/ScrollRevealElements';
 import SectionHeading from '../../Common/SectionHeading';
 
-import avatar1 from "../../assets/testimgs/S1.avif";
-import avatar2 from "../../assets/testimgs/S2.webp";
-import avatar3 from "../../assets/testimgs/S3.webp";
-import avatar4 from "../../assets/testimgs/S4.avif";
-import avatar5 from "../../assets/testimgs/S5.jpg";
-import avatar6 from "../../assets/testimgs/S6.jpg";
-import avatar7 from "../../assets/testimgs/S7.webp";
-import avatar8 from "../../assets/testimgs/S8.webp";
-import avatar9 from "../../assets/testimgs/S9.webp";
+import avatar1 from "../../assets/TestImgs/S1.avif";
+import avatar2 from "../../assets/TestImgs/S2.webp";
+import avatar3 from "../../assets/TestImgs/S3.webp";
+import avatar4 from "../../assets/TestImgs/S4.avif";
+import avatar5 from "../../assets/TestImgs/S5.jpg";
+import avatar6 from "../../assets/TestImgs/S6.jpg";
+import avatar7 from "../../assets/TestImgs/S7.webp";
+import avatar8 from "../../assets/TestImgs/S8.webp";
+import avatar9 from "../../assets/TestImgs/S9.webp";
 
 const testimonials = [
   {

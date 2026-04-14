@@ -1,0 +1,22 @@
+Check,Page/Component,Task Description,Category,Priority,Recommended Fix
+[ ],Global,Add og:image and twitter:image to meta tags.,SEO,High,Create a 1200x630px JPG showing brand services.
+[ ],Global,Implement JSON-LD Structured Data.,SEO,High,Add LocalBusiness/Service schema in index.html.
+[ ],Global,Fix mobile touch targets (< 44px).,UI/UX,Medium,Increase padding for icons in footer and social links.
+[ ],Global,Standardize page titles (e.g. Service | EHM).,SEO,Low,Update document.title in each page or use a helper.
+[ ],Global/Layout,Consolidate animation libraries (GSAP/Framer/AOS).,Perf,Medium,Pick one library and remove redundant ones.
+[ ],Global/Assets,Compress favicon.png (4.4MB).,Perf,High,Use a standard 32x32 .ico or small PNG (< 50KB).
+[ ],Navbar,Fix Magic Number margins (marginLeft: '280px').,Layout,High,Use left-1/2 -translate-x-1/2 for dropdown positioning.
+[ ],Navbar,Add ARIA labels and Keyboard Support.,A11y,Medium,Use <button> for toggles; add aria-expanded.
+[ ],Home Page,Compress video.mp4 (63MB).,Perf,Critical,Use FFmpeg to target < 5MB for the hero background.
+[ ],Home (Hero),Clean up commented code in HeroSection2.jsx.,Polish,Low,Remove massive blocks of unused code.
+[ ],Home (About EHM),Fix empty <h3> and commented sections in EhmBrief.jsx.,Polish,Medium,Remove empty tags; delete commented-out UI blocks.
+[ ],Home (Brief),Replace Screenshot images with high-quality assets.,Design,High,Replace Screenshot_1st_u2ghdl.png with premium photos.
+[ ],Home (Services),Fix hover-only descriptions for Mobile.,UI/UX,High,Make descriptions visible on click or always-on for touch.
+[ ],Home (Common),Add SVG Waves or soft gradients between sections.,Design,Low,Soften the transition between white and teal sections.
+[ ],About Page,Fix empty headings and vertical spacing.,Polish,Medium,Audit About.jsx for stray <h3> or <div> tags.
+[ ],Contact Page,Remove Under Construction comments/hidden sections.,Polish,High,Fully implement or remove commented-out Hero/Map.
+[ ],Contact Page,Integrate Direct Booking (e.g. Calendly).,UX,Medium,Replace contact form lead-in with a scheduling tool.
+[ ],Services/Products,Implement Lazy Loading for images.,Perf,High,Use loading="lazy" or react-intersection-observer.
+[ ],Services/Products,Compress product1.png (20MB).,Perf,High,Convert to WebP/AVIF and resize for web display.
+[ ],Service Details,Audit/Optimise components (Sustainability etc).,Perf,Medium,Ensure sub-components (e.g. AssessmentHero) use optimized assets.
+[ ],Service Details,Page-specific SEO titles.,SEO,Low,Set unique document titles for each specific service page.
