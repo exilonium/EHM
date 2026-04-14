@@ -72,21 +72,21 @@ const ServiceSection = () => {
           <div key={row} className="grid grid-cols-3 gap-6 w-full">
             {data.slice(row * 3, row * 3 + 3).map((item, index) => {
               const actualIndex = row * 3 + index;
-              const isHovered = hoveredIndex === actualIndex;
-
-              return (
+              const isHovered = hoveredIndex === actualIndex;               return (
                 <motion.div
                   key={actualIndex}
-                  className="relative bg-cover bg-center rounded-2xl shadow-2xl overflow-hidden cursor-pointer h-80 transition-all duration-500 ease-in-out hover:shadow-3xl w-full"
+                  className="relative bg-cover bg-center rounded-2xl shadow-xl overflow-hidden cursor-pointer h-80 transition-all duration-500 ease-in-out hover:shadow-2xl w-full"
                   style={{ backgroundImage: `url(${item.image})` }}
                   onMouseEnter={() => setHoveredIndex(actualIndex)}
                   onMouseLeave={() => setHoveredIndex(null)}
+                  onClick={() => setHoveredIndex(hoveredIndex === actualIndex ? null : actualIndex)}
+                  whileTap={{ scale: 0.98 }}
                 >
                   {/* Subtle overlay that only covers bottom part */}
                   <div
                     className={`absolute bottom-0 left-0 right-0 h-1/2 transition-all duration-500 ease-in-out ${isHovered
-                        ? "bg-gradient-to-t from-black/80 via-black/50 to-transparent"
-                        : "bg-gradient-to-t from-black/60 via-black/30 to-transparent"
+                        ? "bg-gradient-to-t from-black/90 via-black/60 to-transparent"
+                        : "bg-gradient-to-t from-black/70 via-black/40 to-transparent"
                       }`}
                     style={{ zIndex: 0 }}
                   ></div>
@@ -94,7 +94,7 @@ const ServiceSection = () => {
                   {/* Card content always above any overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
                     <h2
-                      className={`font-bold mb-2 transition-all duration-500 ${isHovered ? "text-2xl" : "text-lg"
+                      className={`font-bold mb-2 transition-all duration-500 ${isHovered ? "text-xl sm:text-2xl" : "text-lg"
                         }`}
                       style={{
                         color: "#fff",
@@ -107,8 +107,8 @@ const ServiceSection = () => {
                       {item.title}
                     </h2>
                     <p
-                      className={`text-base text-gray-200 mb-4 transition-all duration-500 overflow-hidden ${isHovered
-                          ? "opacity-100 max-h-24"
+                      className={`text-sm sm:text-base text-gray-200 mb-4 transition-all duration-500 overflow-hidden ${isHovered
+                          ? "opacity-100 max-h-32"
                           : "opacity-0 max-h-0"
                         }`}
                     >
@@ -119,10 +119,12 @@ const ServiceSection = () => {
                         item.title === 'Geophysical Investigation' ? '/offerings/geophysical-investigation' :
                           '/offerings'
                     }>
-                      <button
-                        className={`bg-white text-gray-900 px-4 py-2 rounded-full flex items-center gap-2 font-medium hover:bg-gray-100 transition-all duration-300 ${isHovered
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className={`bg-white text-gray-900 px-4 py-2 rounded-full flex items-center gap-2 font-semibold hover:bg-gray-100 transition-all duration-300 ${isHovered
                             ? "opacity-100 translate-y-0"
-                            : "opacity-90 translate-y-1"
+                            : "opacity-0 translate-y-2 pointer-events-none"
                           }`}
                       >
                         Explore
@@ -139,7 +141,7 @@ const ServiceSection = () => {
                             d="M9 5l7 7-7 7"
                           />
                         </svg>
-                      </button>
+                      </motion.button>
                     </Link>
                   </div>
 

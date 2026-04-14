@@ -19,6 +19,7 @@ import Feature from "../Components/LandingPage/Feature";
 import LatestBlogSection from "../Components/LandingPage/LatestBlogSection";
 import HeroSection2 from '../Components/LandingPage/HeroSection2';
 import Hero from '../Components/About/Hero'
+import SectionDivider from '../Common/SectionDivider';
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-[#ededed]">
@@ -29,7 +30,8 @@ const HomePage = () => {
       {/* About EHM */}
       <EhmBrief />
 
-      {/* Offerings */}
+      {/* Offerings Divider */}
+      <SectionDivider color="#f0fdfa" />
       <ServiceSection />
 
       {/* Completed Projects / Logo Scroll */}

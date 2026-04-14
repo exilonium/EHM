@@ -133,11 +133,9 @@ const NavBar = () => {
           <li className="relative group">
             <span
               ref={buttonRef}
-              onClick={() =>
-                setActiveDropdown(
-                  activeDropdown === "offerings" ? null : "offerings"
-                )
-              }
+              aria-expanded={activeDropdown === "offerings"}
+              aria-haspopup="true"
+              onClick={() => setActiveDropdown(activeDropdown === "offerings" ? null : "offerings")}
               className={`cursor-pointer flex items-center transition-colors duration-200 
                   ${activeDropdown === "offerings"
                   ? "text-yellow-400"
@@ -158,11 +156,9 @@ const NavBar = () => {
           {/* Resources Dropdown */}
           <li className="relative group">
             <span
-              onClick={() =>
-                setActiveDropdown(
-                  activeDropdown === "resources" ? null : "resources"
-                )
-              }
+              aria-expanded={activeDropdown === "resources"}
+              aria-haspopup="true"
+              onClick={() => setActiveDropdown(activeDropdown === "resources" ? null : "resources")}
               className={`cursor-pointer flex items-center transition-colors duration-200 select-none no-bg
                 ${activeDropdown === "resources"
                   ? "text-yellow-400"
@@ -307,11 +303,11 @@ const NavBar = () => {
       {activeDropdown && (
         <div
           ref={dropdownRef}
-          className="absolute left-0 bg-[#ffffff] animate-fadeIn hidden lg:block shadow-lg rounded-b-lg"
+          className="absolute left-1/2 -translate-x-1/2 bg-[#ffffff] animate-fadeIn hidden lg:block shadow-xl rounded-b-xl border-t border-gray-100"
           style={{
-            marginLeft: activeDropdown === 'offerings' ? '280px' : activeDropdown === 'resources' ? '380px' : '0',
-            width: activeDropdown === 'resources' ? '700px' : '900px',
-            maxWidth: '90vw'
+            width: activeDropdown === 'resources' ? '800px' : '1000px',
+            maxWidth: '95vw',
+            top: '100%'
           }}
         >
           <div className={`grid gap-12 px-4 pt-8 pb-6 ${activeDropdown === 'resources' ? 'grid-cols-3' : 'grid-cols-4'}`}>
