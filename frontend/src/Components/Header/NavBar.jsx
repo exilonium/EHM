@@ -105,7 +105,7 @@ const NavBar = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
+    <header className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-white/20 shadow-sm transition-all duration-300">
       <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-3">
         {/* Logo */}
         <Link to="/" onClick={handleNavClick}>
@@ -195,7 +195,6 @@ const NavBar = () => {
             </Link>
           </li>
         </ul>
-
         {/* Mobile Menu Toggle */}
         <div
           className="lg:hidden text-green-900 text-3xl cursor-pointer"
@@ -204,6 +203,51 @@ const NavBar = () => {
           <span>{isMenuOpen ? "✕" : "☰"}</span>
         </div>
       </nav>
+
+      {/* Desktop Dropdown Content - Aligned with Nav Grid */}
+      {activeDropdown && (
+        <div className="hidden lg:block absolute left-0 right-0 top-full">
+          <div className="max-w-6xl mx-auto px-6 relative">
+            <div
+              ref={dropdownRef}
+              className="absolute right-0 bg-white/95 backdrop-blur-xl animate-fadeIn shadow-2xl rounded-b-2xl border-x border-b border-gray-100/50"
+              style={{
+                width: activeDropdown === 'resources' ? '800px' : '1000px',
+                maxWidth: 'calc(100vw - 3rem)',
+              }}
+            >
+              <div className={`grid gap-12 px-8 pt-10 pb-8 ${activeDropdown === 'resources' ? 'grid-cols-3' : 'grid-cols-4'}`}>
+                {(activeDropdown === "resources" ? resourcesMenu : offeringsMenu).map(
+                  (section) => (
+                    <div key={section.title} className="col-span-1">
+                      <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">{section.title}</h4>
+                      <ul className="space-y-4">
+                        {section.items.map((item) => (
+                          <li key={item.path}>
+                            <Link
+                              to={item.path}
+                              onClick={handleNavClick}
+                              className="flex items-start space-x-3 text-green-900 hover:text-emerald-600 transition-all duration-300 group"
+                            >
+                              <div className="mt-1 p-2 rounded-lg bg-emerald-50 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                                <item.icon className="w-5 h-5" />
+                              </div>
+                              <div className="flex flex-col">
+                                <span className="font-semibold text-base leading-tight">{item.name}</span>
+                                <span className="text-xs text-gray-500 line-clamp-1 mt-1 font-normal opacity-0 group-hover:opacity-100 transition-opacity">Explore our {item.name.toLowerCase()} solutions</span>
+                              </div>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Mobile Menu */}
       {isMenuOpen && (
@@ -299,63 +343,6 @@ const NavBar = () => {
         </div>
       )}
 
-      {/* Desktop Dropdown Content */}
-      {activeDropdown && (
-        <div
-          ref={dropdownRef}
-          className="absolute left-1/2 -translate-x-1/2 bg-[#ffffff] animate-fadeIn hidden lg:block shadow-xl rounded-b-xl border-t border-gray-100"
-          style={{
-            width: activeDropdown === 'resources' ? '800px' : '1000px',
-            maxWidth: '95vw',
-            top: '100%'
-          }}
-        >
-          <div className={`grid gap-12 px-4 pt-8 pb-6 ${activeDropdown === 'resources' ? 'grid-cols-3' : 'grid-cols-4'}`}>
-            {(activeDropdown === "resources" ? resourcesMenu : offeringsMenu).map(
-              (section) => (
-                <div key={section.title} className="col-span-1">
-                  <ul className="space-y-4">
-                    {section.items.map((item) => (
-                      <li key={item.path}>
-                        <Link
-                          to={item.path}
-                          onClick={handleNavClick}
-                          className="flex items-center space-x-2 text-green-900 hover:text-yellow-400 transition group"
-                        >
-                          <item.icon className="w-12 text-green-900 group-hover:text-yellow-400" />
-                          <span>{item.name}</span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )
-            )}
-          </div>
-
-          {/* RIGHT SIDE LINKS */}
-          {/* <div className="border-l p-9 pt-20 bg-[#edecec]">
-      <ul className="space-y-4">
-        <li>
-          <Link
-            to="/contact"
-            className="text-green-900 hover:text-yellow-500 uppercase font-semibold"
-          >
-            contact
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/more"
-            className="text-green-900 hover:text-yellow-500 uppercase font-semibold"
-          >
-            See More
-          </Link>
-        </li>
-      </ul>
-    </div> */}
-        </div>
-      )}
     </header>
   );
 };

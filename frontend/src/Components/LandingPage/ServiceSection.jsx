@@ -71,97 +71,71 @@ const ServiceSection = () => {
         {[0, 1].map((row) => (
           <div key={row} className="grid grid-cols-3 gap-6 w-full">
             {data.slice(row * 3, row * 3 + 3).map((item, index) => {
-              const actualIndex = row * 3 + index;
-              const isHovered = hoveredIndex === actualIndex;               return (
+               return (
                 <motion.div
                   key={actualIndex}
-                  className="relative bg-cover bg-center rounded-2xl shadow-xl overflow-hidden cursor-pointer h-80 transition-all duration-500 ease-in-out hover:shadow-2xl w-full"
+                  className="relative bg-cover bg-center rounded-[2rem] shadow-xl overflow-hidden cursor-pointer h-[420px] transition-all duration-700 ease-in-out hover:shadow-2xl border border-gray-100/10"
                   style={{ backgroundImage: `url(${item.image})` }}
                   onMouseEnter={() => setHoveredIndex(actualIndex)}
                   onMouseLeave={() => setHoveredIndex(null)}
                   onClick={() => setHoveredIndex(hoveredIndex === actualIndex ? null : actualIndex)}
+                  whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  {/* Subtle overlay that only covers bottom part */}
+                  {/* Premium Overlay System */}
                   <div
-                    className={`absolute bottom-0 left-0 right-0 h-1/2 transition-all duration-500 ease-in-out ${isHovered
-                        ? "bg-gradient-to-t from-black/90 via-black/60 to-transparent"
-                        : "bg-gradient-to-t from-black/70 via-black/40 to-transparent"
-                      }`}
-                    style={{ zIndex: 0 }}
+                    className={`absolute inset-0 transition-opacity duration-700 ${isHovered ? "opacity-90" : "opacity-40"
+                      } bg-gradient-to-t from-gray-950 via-gray-900/60 to-transparent`}
                   ></div>
 
-                  {/* Card content always above any overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
-                    <h2
-                      className={`font-bold mb-2 transition-all duration-500 ${isHovered ? "text-xl sm:text-2xl" : "text-lg"
-                        }`}
-                      style={{
-                        color: "#fff",
-                        textShadow:
-                          "0 3px 15px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.7)",
-                        position: "relative",
-                        zIndex: 20,
-                      }}
-                    >
-                      {item.title}
-                    </h2>
-                    <p
-                      className={`text-sm sm:text-base text-gray-200 mb-4 transition-all duration-500 overflow-hidden ${isHovered
-                          ? "opacity-100 max-h-32"
-                          : "opacity-0 max-h-0"
-                        }`}
-                    >
-                      {item.paragraph}
-                    </p>
-                    <Link to={
-                      item.title === 'Sustainability Assessment & Reporting' ? '/offerings/sustainability-assessment-reporting' :
-                        item.title === 'Geophysical Investigation' ? '/offerings/geophysical-investigation' :
-                          '/offerings'
-                    }>
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className={`bg-white text-gray-900 px-4 py-2 rounded-full flex items-center gap-2 font-semibold hover:bg-gray-100 transition-all duration-300 ${isHovered
-                            ? "opacity-100 translate-y-0"
-                            : "opacity-0 translate-y-2 pointer-events-none"
+                  {/* Card Content */}
+                  <div className="absolute inset-0 p-8 flex flex-col justify-end text-white z-10">
+                    <div className={`transition-all duration-700 ${isHovered ? "translate-y-0" : "translate-y-4"}`}>
+                      <h2
+                        className="font-extrabold text-2xl lg:text-3xl mb-3 tracking-tight leading-tight"
+                        style={{
+                          fontFamily: "Outfit",
+                          textShadow: "0 2px 20px rgba(0,0,0,0.5)",
+                        }}
+                      >
+                        {item.title}
+                      </h2>
+                      
+                      <p
+                        className={`text-sm lg:text-base text-white/80 mb-6 leading-relaxed transition-all duration-500 overflow-hidden ${isHovered
+                            ? "opacity-100 max-h-40"
+                            : "opacity-0 max-h-0"
                           }`}
                       >
-                        Explore
-                        <svg
-                          className="w-4 h-4"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
+                        {item.paragraph}
+                      </p>
+
+                      <Link to={
+                        item.title === 'Sustainability Assessment & Reporting' ? '/offerings/sustainability-assessment-reporting' :
+                          item.title === 'Geophysical Investigation' ? '/offerings/geophysical-investigation' :
+                            '/offerings'
+                      }>
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className={`bg-white/10 backdrop-blur-md text-white px-6 py-2.5 rounded-full flex items-center gap-2 font-bold border border-white/20 hover:bg-white hover:text-gray-900 transition-all duration-300 ${isHovered
+                              ? "opacity-100 translate-y-0"
+                              : "opacity-0 translate-y-4 pointer-events-none"
+                            }`}
                         >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      </motion.button>
-                    </Link>
+                          Learn More
+                          <ArrowRight className="w-4 h-4" />
+                        </motion.button>
+                      </Link>
+                    </div>
                   </div>
 
-                  {/* Top-right icon */}
-                  <button className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white rounded-full p-2 hover:bg-white/30 transition-all duration-300 z-20">
-                    <svg
-                      className={`w-4 h-4 transition-transform duration-300 ${isHovered ? "rotate-[-90deg]" : ""
-                        }`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </button>
+                  {/* Top Badge */}
+                  <div className="absolute top-6 left-6 z-20">
+                    <div className="glass-effect bg-white/5 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+                       <span className="text-[10px] font-bold uppercase tracking-widest text-white/60">EHM Intelligence</span>
+                    </div>
+                  </div>
                 </motion.div>
               );
             })}

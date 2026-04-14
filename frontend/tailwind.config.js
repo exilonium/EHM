@@ -7,6 +7,7 @@ export default {
     extend: {
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif'],
+        outfit: ['Outfit', 'sans-serif'],
       },
       animation: {
         fadeIn: "fadeIn 1.2s ease-in-out forwards",

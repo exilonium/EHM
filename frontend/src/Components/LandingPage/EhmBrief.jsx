@@ -5,74 +5,65 @@ import SectionHeading from '../../Common/SectionHeading';
 
 const EhmBrief = () => {
   return (
-    <section className="relative font-sans overflow-hidden">
-      {/* Multiple layered gradients for deep fading effect */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-teal-100 to-white" />
-      <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-teal-200/70 to-white/95" />
-      <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-transparent to-white/90" />
+     <section className="relative overflow-hidden py-24 bg-white font-outfit">
+      {/* Subtle Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-100 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-100 to-transparent"></div>
       
-      {/* Diagonal gradient layers for depth */}
-      <div className="absolute inset-0 bg-gradient-to-br from-teal-100/60 via-teal-200/40 to-teal-100/60" />
-      <div className="absolute inset-0 bg-gradient-to-tr from-teal-50/50 via-teal-150/30 to-teal-50/50" />
-      
-      {/* Strong top fade */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white via-white/80 to-transparent z-10" />
-      
-      {/* Strong bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/80 to-transparent z-10" />
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          
+          {/* Visual Element */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative order-2 lg:order-1"
+          >
+            <div className="absolute -inset-4 bg-emerald-50 rounded-[2.5rem] -rotate-2"></div>
+            <img
+              className="relative w-full aspect-[4/3] object-cover rounded-[2rem] shadow-2xl"
+              src="https://res.cloudinary.com/dlpluej6w/image/upload/v1756388167/Screenshot_1st_u2ghdl.png"
+              alt="Sustainable agriculture landscapes"
+            />
+            {/* Trust Badge */}
+            <div className="absolute -bottom-6 -right-6 glass-effect bg-white/80 backdrop-blur-xl p-6 rounded-2xl shadow-xl border border-emerald-100 max-w-[200px]">
+              <p className="text-emerald-800 font-extrabold text-sm mb-1">IIT ALUMNI FOUNDED</p>
+              <p className="text-gray-500 text-xs font-medium leading-relaxed">Driving global sustainability through deep-tech innovation.</p>
+            </div>
+          </motion.div>
 
-      {/* Top Section */}
-      <div className="relative text-center w-full h-auto mx-auto py-16 sm:py-16 md:py-16 z-20">
-        {/* Top Section Content */}
-        <SectionHeading>About EHM</SectionHeading>
-      </div>
+          {/* Text Content */}
+          <div className="order-1 lg:order-2 space-y-8">
+            <div className="space-y-4">
+              <h4 className="text-emerald-500 font-bold uppercase tracking-[0.2em] text-xs">Our Heritage</h4>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                Engineering a <br />
+                <span className="text-gray-400 font-light italic">Resilient Future</span>
+              </h2>
+            </div>
 
-      {/* Bottom Section */}
-      <div className="w-full relative z-20">
-        <div className="col-span-12 lg:col-span-10 pb-16 sm:pb-20 px-4 sm:px-8 md:px-12 lg:px-32">
+            <div className="space-y-6 text-gray-600 text-lg leading-relaxed font-light">
+              <p>
+                Founded by IIT alumni, EHM is a sustainability pioneer dedicated to advancing the UN Sustainable Development Goals (SDGs). 
+              </p>
+              <p>
+                We bridge the gap between complex environmental challenges and data-driven solutions. By partnering with industries and institutions, we enhance ESG performance and navigate climate risks with precision.
+              </p>
+            </div>
 
-          {/* Main descriptive area - heading intentionally omitted here to keep page flow concise */}
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-center">
-
-            <motion.div
-              className="w-full h-full"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-            >
-              <img
-                className="w-full h-full object-cover rounded-2xl shadow-lg"
-                src="https://res.cloudinary.com/dlpluej6w/image/upload/v1756388167/Screenshot_1st_u2ghdl.png"
-                alt="Aerial view of green terrace farms"
-              />
-            </motion.div>
-
-            <ScrollRevealElements
-              className="flex flex-col mt-6 md:mt-0 md:pl-6 lg:pl-12"
-              staggerAmount={0.5}
-              yOffset={30}
-            >
-              <motion.p className="text-gray-600 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base md:text-base lg:text-lg">
-                EHM is a sustainability-focused startup founded by IIT alumni, 
-                working to advance the United Nations Sustainable Development Goals (SDGs). 
-                We partner with industries, government organizations, and higher education institutions 
-                to enhance ESG performance, manage climate risks, meet regulatory standards, and implement long-term sustainability strategies.
-                <br />
-                <br />
-
-              </motion.p>
-              <motion.a
-                href="/about"
-                className="group inline-flex items-center justify-center gap-2 self-start bg-emerald-500 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-emerald-600 transition-all duration-300"
+            <div className="pt-4">
+              <Link
+                to="/about"
+                className="group inline-flex items-center gap-4 bg-gray-900 text-white font-bold px-8 py-4 rounded-full hover:bg-emerald-600 hover:shadow-[0_10px_30px_rgba(16,185,129,0.3)] transition-all duration-500"
               >
-                Know more
-                <span className="transition-transform duration-300 group-hover:translate-x-1">
-                  →
+                Learn Our Story
+                <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                   <ArrowRight className="w-4 h-4" />
                 </span>
-              </motion.a>
-            </ScrollRevealElements>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
