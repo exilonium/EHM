@@ -24,6 +24,7 @@ const ServicePage = () => {
 
     useEffect(() => {
         setIsMounted(true);
+        document.title = "Our Offerings | EHM Earth Hydro Management";
         // Remove any potential scroll locks when component unmounts
         return () => {
             document.body.style.overflow = '';

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Team from '../Components/LandingPage/Team'
 
 import { members, advisors, experts } from '../Data/Data'
@@ -17,6 +17,10 @@ import CertifiedLogo from '../Components/LandingPage/certified_logo'
 import Mission from '../Components/About/Mission'
 
 const About = () => {
+  useEffect(() => {
+    document.title = "About Us | EHM Earth Hydro Management";
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 ">
       <HeroNew/>

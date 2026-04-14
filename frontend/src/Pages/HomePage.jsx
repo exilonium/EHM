@@ -20,7 +20,13 @@ import LatestBlogSection from "../Components/LandingPage/LatestBlogSection";
 import HeroSection2 from '../Components/LandingPage/HeroSection2';
 import Hero from '../Components/About/Hero'
 import SectionDivider from '../Common/SectionDivider';
+import { useEffect } from 'react';
+
 const HomePage = () => {
+  useEffect(() => {
+    document.title = "EHM | Earth Hydro Management - Environmental Solutions";
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#ededed]">
       <HeroSection2 />
