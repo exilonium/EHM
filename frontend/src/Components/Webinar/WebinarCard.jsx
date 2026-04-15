@@ -20,6 +20,7 @@ const WebinarCard = ({ webinar }) => {
           src={webinar.thumbnail}
           alt={webinar.title}
           className="w-full h-full object-cover"
+          loading="lazy"
         />
         {/* Hover play button */}
         <div

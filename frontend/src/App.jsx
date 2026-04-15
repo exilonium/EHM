@@ -4,7 +4,6 @@ import About from './Pages/About.jsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './Pages/HomePage.jsx';
 import AdminRoute from "../src/Components/Admin/AdminRoute.jsx";
-import AOS from 'aos';
 import ContactPage from './Pages/ContactPage.jsx';
 import AdminDashboard from "./Pages/AdminDashboard.jsx";
 import Layout from "./Layout.jsx";
@@ -19,7 +18,6 @@ import ProjectsPage from "./Pages/ProjectsPage.jsx";
 // ^-- CHANGE MADE HERE --^ //
 
 
-import "aos/dist/aos.css";
 import AdminLoginModal from "../src/Components/Admin/AdminLoginModal.jsx";
 
 
@@ -42,9 +40,6 @@ import GeophysicalInvestigation from './Pages/GeophysicalInvestigation.jsx';
 
 function App() {
 
-  useEffect(() => {
-    AOS.init({ duration: 800, once: true });
-  }, []);
 
   return (
     <BrowserRouter>

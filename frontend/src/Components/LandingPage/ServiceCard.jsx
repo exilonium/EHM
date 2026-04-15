@@ -1,22 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const ServiceCard = ({ title, description, bullets = [], imageUrl, fileUrl, delay = 0 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  useEffect(() => {
-    AOS.init({ once: true });
-  }, []);
-
   return (
     <>
       {/* Card */}
-      <div
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: delay / 1000 }}
         className="group relative flex flex-col lg:flex-row items-center gap-8 py-10 px-6 m-8 bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-lime-500"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-        data-aos-delay={delay}
       >
         {/* Left Content */}
         <div className="flex-1 relative z-10">
@@ -52,9 +48,12 @@ const ServiceCard = ({ title, description, bullets = [], imageUrl, fileUrl, dela
         </div>
 
         {/* Right Image */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: (delay + 200) / 1000 }}
           className="flex-1 max-w-sm w-full cursor-pointer relative z-10"
-          data-aos="zoom-in-up"
           onClick={() => setIsModalOpen(true)}
         >
           <div className="overflow-hidden rounded-xl border border-gray-200">
@@ -64,8 +63,8 @@ const ServiceCard = ({ title, description, bullets = [], imageUrl, fileUrl, dela
               className="w-full h-64 object-cover transition-transform duration-500 hover:scale-110"
             />
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Fullscreen Modal */}
       {isModalOpen && (

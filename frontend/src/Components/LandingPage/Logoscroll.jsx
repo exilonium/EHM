@@ -130,6 +130,7 @@ const LogoScroll = () => {
                     alt={company.name}
                     draggable={false}
                     className="company-logo"
+                    loading="lazy"
                   />
                 </div>
               ))}
@@ -149,6 +150,7 @@ const LogoScroll = () => {
                     alt={company.name}
                     draggable={false}
                     className="company-logo"
+                    loading="lazy"
                   />
                 </div>
               ))}

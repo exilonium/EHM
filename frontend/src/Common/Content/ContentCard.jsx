@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Image as ImageIcon, ArrowRight, User } from "lucide-react";
+import { motion } from "framer-motion";
 
 /**
  * A reusable card for displaying any content preview 
@@ -27,10 +28,12 @@ const ContentCard = ({ item, basePath, delay }) => {
     const imageUrl = item.image ? item.image : null;
 
     return (
-        <div
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: delay / 1000 }}
             className="bg-white rounded-2xl shadow-lg overflow-hidden h-full flex flex-col group transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2"
-            data-aos="fade-up"
-            data-aos-delay={delay}
         >
             <div className="relative h-48 overflow-hidden">
                 <Link to={`/${basePath}/${item._id}`} className="block w-full h-full">
@@ -40,6 +43,7 @@ const ContentCard = ({ item, basePath, delay }) => {
                             alt={item.title}
                             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                             onError={() => setImageError(true)}
+                            loading="lazy"
                         />
                     ) : (
                         <div className="w-full h-full bg-gray-100 flex items-center justify-center">
@@ -80,7 +84,7 @@ const ContentCard = ({ item, basePath, delay }) => {
                     </Link>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

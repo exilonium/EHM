@@ -1,4 +1,4 @@
-import { Sparkles } from "lucide-react";
+import { Sparkles, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import ScrollRevealElements from "../Animations/ScrollRevealElements";
@@ -71,17 +71,26 @@ const ServiceSection = () => {
         {[0, 1].map((row) => (
           <div key={row} className="grid grid-cols-3 gap-6 w-full">
             {data.slice(row * 3, row * 3 + 3).map((item, index) => {
+              const actualIndex = row * 3 + index;
+              const isHovered = hoveredIndex === actualIndex;
                return (
                 <motion.div
                   key={actualIndex}
-                  className="relative bg-cover bg-center rounded-[2rem] shadow-xl overflow-hidden cursor-pointer h-[420px] transition-all duration-700 ease-in-out hover:shadow-2xl border border-gray-100/10"
-                  style={{ backgroundImage: `url(${item.image})` }}
+                  className="relative rounded-[2rem] shadow-xl overflow-hidden cursor-pointer h-[420px] transition-all duration-700 ease-in-out hover:shadow-2xl border border-gray-100/10"
                   onMouseEnter={() => setHoveredIndex(actualIndex)}
                   onMouseLeave={() => setHoveredIndex(null)}
                   onClick={() => setHoveredIndex(hoveredIndex === actualIndex ? null : actualIndex)}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
+                  {/* Background Image with Lazy Loading */}
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    loading="lazy"
+                  />
+
                   {/* Premium Overlay System */}
                   <div
                     className={`absolute inset-0 transition-opacity duration-700 ${isHovered ? "opacity-90" : "opacity-40"

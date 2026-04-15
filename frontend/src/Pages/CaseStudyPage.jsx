@@ -11,6 +11,7 @@ const CaseStudyPage = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        document.title = "Case Studies | EHM Earth Hydro Management";
         const fetchCaseStudies = async () => {
             try {
                 setLoading(true);

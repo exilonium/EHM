@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import AssessmentHero from '../Components/SustainabilityAssessment/AssessmentHero'
 import DashBoardBrief from '../Components/SustainabilityAssessment/DashBoardBrief'
 import DashboardFeatures from '../Components/SustainabilityAssessment/DashboardFeatures'
@@ -8,16 +8,20 @@ import FeatureProject from '../Components/SustainabilityAssessment/FeatureProjec
 
 
 const SustainabilityAssessment = () => {
+  useEffect(() => {
+    document.title = "Sustainability Assessment & Reporting | EHM Earth Hydro Management";
+  }, []);
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 ">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
       <AssessmentHero />
       <DashBoardBrief />
-      <DashboardFeatures/>
-      <ImplementationPlanSection/>  
-      <SubscriptionPlans/>  
-      <FeatureProject/>
+      <DashboardFeatures />
+      <ImplementationPlanSection />
+      <SubscriptionPlans />
+      <FeatureProject />
     </div>
-  )
-}
+  );
+};
 
 export default SustainabilityAssessment

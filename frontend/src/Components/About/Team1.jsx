@@ -46,6 +46,7 @@ const Team = ({ title, members, limit }) => {
                 className="h-32 w-32 rounded-full border-4 border-white/80 object-cover shadow-lg transition-transform duration-500 ease-out group-hover:scale-105 group-hover:-rotate-2"
                 src={member.img}
                 alt={member.name}
+                loading="lazy"
               />
               <div className="mt-4">
                 <h3 className="text-xl font-bold text-white">{member.name}</h3>
@@ -59,6 +60,7 @@ const Team = ({ title, members, limit }) => {
                   className="mx-auto mb-2 h-28 w-28 rounded-full border-4 border-emerald-300 object-cover shadow-lg"
                   src={member.img}
                   alt={member.name}
+                  loading="lazy"
                 />
                 <h3 className="text-base font-bold text-white leading-tight">{member.name}</h3>
                 <h4 className="text-xs font-semibold text-emerald-300">

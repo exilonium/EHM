@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { ChevronsRight, ChevronsDown, CloudHail, Plane, RefreshCcwDot, Droplets, CheckCircle, ShieldCheck, Sparkles, Bolt } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ScrollRevealElements from '../Components/Animations/ScrollRevealElements';
 
 const WaterbodyRestoration = () => {
+    useEffect(() => {
+        document.title = "Waterbody Restoration | EHM Earth Hydro Management";
+    }, []);
+
     const [activeNode, setActiveNode] = useState(null);
     const [hoveredStage, setHoveredStage] = useState(null);
     const [hoveredProject, setHoveredProject] = useState('laxmi');

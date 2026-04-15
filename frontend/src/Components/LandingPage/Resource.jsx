@@ -24,7 +24,7 @@ const Resource = () => {
       title: "Case Studies",
       description:
         "Real-world projects showcasing how our solutions create measurable environmental, social, and economic impact across sectors.",
-        buttonText: "Explore case studies",
+      buttonText: "Explore case studies",
       link: "/resources/casestudies",
       image:
         "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
@@ -196,11 +196,10 @@ const Resource = () => {
                       <button
                         key={res.id}
                         onClick={() => goToSlide(i)}
-                        className={`w-1.5 rounded-full transition-all duration-300 flex-1 ${
-                          activeIndex === i
+                        className={`w-1.5 rounded-full transition-all duration-300 flex-1 ${activeIndex === i
                             ? "bg-green-600 shadow-lg scale-110"
                             : "bg-gray-300 hover:bg-gray-400"
-                        }`}
+                          }`}
                         aria-label={`Go to ${res.title}`}
                         title={res.title}
                       />

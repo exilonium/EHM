@@ -53,7 +53,11 @@ CaseStudyUserRouter.get(
   "/casestudies/author/:authorName",
   async (req: Request, res: Response) => {
     try {
-      const authorName = decodeURIComponent(req.params.authorName);
+      // const authorName = decodeURIComponent(req.params.authorName);
+      const authorParam = req.params.authorName;
+      const authorName = decodeURIComponent(
+        Array.isArray(authorParam) ? authorParam[0] : authorParam
+      );
       const caseStudies = await CaseStudyModel.find({
         author: authorName,
       }).sort({

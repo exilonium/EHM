@@ -11,6 +11,7 @@ const BlogsPage = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        document.title = "Blogs | EHM Earth Hydro Management";
         const fetchBlogs = async () => {
             try {
                 setLoading(true);

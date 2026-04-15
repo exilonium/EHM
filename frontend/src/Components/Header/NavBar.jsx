@@ -197,10 +197,12 @@ const NavBar = () => {
         </ul>
         {/* Mobile Menu Toggle */}
         <div
-          className="lg:hidden text-green-900 text-3xl cursor-pointer"
+          className="lg:hidden text-green-900 text-3xl cursor-pointer p-2 -mr-2"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <span>{isMenuOpen ? "✕" : "☰"}</span>
+          <span className="block w-8 h-8 flex items-center justify-center">
+            {isMenuOpen ? "✕" : "☰"}
+          </span>
         </div>
       </nav>
 
